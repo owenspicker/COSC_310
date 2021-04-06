@@ -13,6 +13,7 @@ from PyDictionary import PyDictionary
 import translator
 import wiki_api
 import polarity
+import pos_tag_functions
 
 
 # This is a modified converse function from nltk.chat.util
@@ -43,30 +44,7 @@ def makeMenu():
     root.config(menu=mainMenu)
 
 
-# method to check for currency inputs
 
-def checkForCurrency(userInput):
-    userInput = nltk.word_tokenize(userInput)
-    userInput = nltk.pos_tag(userInput)
-    truth = False
-    for i in range(len(userInput)):
-        a = userInput[i]
-        if (a[1] == '$'):
-            truth = True
-    return truth
-
-
-# method to check for year inputs
-
-def checkForNum(userInput):
-    userInput = nltk.word_tokenize(userInput)
-    userInput = nltk.pos_tag(userInput)
-    truth = False
-    for i in range(len(userInput)):
-        a = userInput[i]
-        if (a[1] == 'CD' and len(a[0]) == 4 and (a[0][0] == '2' or a[0][0] == '1')):
-            truth = True
-    return truth
 
 
 # this just adds commas based on simple rules
@@ -130,8 +108,8 @@ def sendClick():
     words = nltk.pos_tag(text)    
     userInput = addComma(userInput)
     mesWin.delete("1.0", END)
-    truth = checkForCurrency(userInput)
-    truth1 = checkForNum(userInput)
+    truth = pos_tag_functions.checkForCurrency(userInput)
+    truth1 = pos_tag_functions.checkForNum(userInput)
     truth2 = polarity.checkPolarity(userInput)
     truth3 = wiki_api.checkLookup(userInput)
     
