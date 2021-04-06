@@ -12,6 +12,7 @@ nltk.download('averaged_perceptron_tagger')
 from nltk import word_tokenize
 from PyDictionary import PyDictionary
 import translator
+import wiki_api
 
 
 
@@ -143,17 +144,22 @@ def sendClick():
     truth = checkForCurrency(userInput)
     truth1 = checkForNum(userInput)
     truth2 = checkPolarity(userInput)
+    truth3 = wiki_api.checkLookup(userInput)
+    
     userInput = translator.checkLang(userInput)
-    if (truth == True):
-        reply = "Sorry. I don't understand currency well. Can you try again?"
+    if(truth3 == True):
+        reply = wiki_api.lookup(userInput)
     else:
-        if (truth1 == True):
-            reply = "Sorry, I am unfamiliar with that year. Can you try again?"
+        if(truth == True):
+            reply = "Sorry. I don't understand currency well. Can you try again?"
         else:
-            if (truth2 == True):
-                reply = "Well that does not seem very nice!"
+            if (truth1 == True):
+                reply = "Sorry, I am unfamiliar with that year. Can you try again?"
             else:
-                reply = tryConverseWithSynonyms(userInput)
+                    if (truth2 == True):
+                        reply = "Well that does not seem very nice!"
+                    else:
+                        reply = tryConverseWithSynonyms(userInput)
     output = ""
     chatWin.configure(state="normal")
     if "To begin" in chatWin.get("1.0", END):
@@ -191,7 +197,7 @@ root.resizable(width=FALSE, height=FALSE)
 # this section is textboxes that will be placed by the beginClick function
 # chat window
 chatWin = Text(root, bd=1, bg="black", width=50, height=8, font=("Arial", 25), foreground="#00FFFF", wrap=WORD)
-chatWin.insert(END, "To begin chatting type your message into the textbox on the bottom\n")
+chatWin.insert(END, "To begin chatting type your message into the textbox on the bottom. For general definition based questions, structure your quesion as: 'Tell me about _ '\n")
 chatWin.configure(state="disabled")
 # Message window
 mesWin = Text(root, bd=0, bg="black", width="30", height="4", font=("Arial", 23), foreground="#00ffff")
