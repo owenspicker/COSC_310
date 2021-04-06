@@ -3,10 +3,13 @@ import pos_tag_functions
 import polarity
 
 
+#this file is to test the functions created in Assignment 3
+#the inputs span from general cases to edge cases
+
 class TestChatBot(unittest.TestCase):
   
     
-    #this first function tests the checkPolarity
+    #this first function tests the polarity function (sentiment analysis)
     def test_checkPolarity(self):
           self.assertEqual(polarity.checkPolarity("I hate you"), True)
           self.assertEqual(polarity.checkPolarity("Soccer is terrible"), True)
@@ -19,14 +22,14 @@ class TestChatBot(unittest.TestCase):
           self.assertEqual(polarity.checkPolarity("No you could not"), False) 
           
           
-          
+     #this function tests the check for currency (pos tagging)     
     def test_checkForCurrency(self):
           self.assertEqual(pos_tag_functions.checkForCurrency("Can I go to a game for $100?"), True)
           self.assertEqual(pos_tag_functions.checkForCurrency("£100"), False) 
           self.assertEqual(pos_tag_functions.checkForCurrency("one hundred dollars"), False)
           self.assertEqual(pos_tag_functions.checkForCurrency("is messi worth $100 mil?"), True)
 
-
+    #this function tests the check for year (pos tagging)
     def test_checkForNum(self):
           self.assertEqual(pos_tag_functions.checkForNum("Who won in 1900?"), True)
           self.assertEqual(pos_tag_functions.checkForNum("Who won in 2000?"), True)
