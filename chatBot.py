@@ -5,7 +5,6 @@ from tkinter import *
 from nltk.chat.util import Chat, reflections
 from nltk.tokenize import word_tokenize
 from nltk.tag import pos_tag
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from nltk.corpus import wordnet
 nltk.download('wordnet')
 nltk.download('averaged_perceptron_tagger')
@@ -13,7 +12,7 @@ from nltk import word_tokenize
 from PyDictionary import PyDictionary
 import translator
 import wiki_api
-
+import polarity
 
 
 # This is a modified converse function from nltk.chat.util
@@ -69,16 +68,6 @@ def checkForNum(userInput):
             truth = True
     return truth
 
-
-# method to check polarity of the user input
-
-def checkPolarity(userInput):
-    analyzer1 = SentimentIntensityAnalyzer()
-    text = analyzer1.polarity_scores(userInput)
-    truth = False
-    if text['compound'] < -0.299:
-        truth = True
-    return truth
 
 # this just adds commas based on simple rules
 def addComma(text):
@@ -143,7 +132,7 @@ def sendClick():
     mesWin.delete("1.0", END)
     truth = checkForCurrency(userInput)
     truth1 = checkForNum(userInput)
-    truth2 = checkPolarity(userInput)
+    truth2 = polarity.checkPolarity(userInput)
     truth3 = wiki_api.checkLookup(userInput)
     
     userInput = translator.checkLang(userInput)
