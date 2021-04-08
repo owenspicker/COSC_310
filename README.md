@@ -8,7 +8,7 @@ To be able to run this bot with the new features, you will need to install new p
 ### For Google Translate API, you will need to run "pip install googletrans==3.1.0a0".
 The current edition of the package does not work, so an older package is needed.
 
-The Google Translate API adds to the flow of the conversation by detecting and translating the user input if it is not english. When the user inputs a phrase, it is passed to a method that checks the language. If it is not english, the function will translate the input into english, then return the input back so that it can converse with the chat bot in english. If the phrase is english, the method will return the original phrase back. The translate API supports several languages, however it does struggle with languages that have different characters. It is most effective with languages such as French, Portuguese, German, etc.
+The Google Translate API adds to the flow of the conversation by detecting and translating the user input if it is not english. When the user inputs a phrase, it is passed to a method that checks the language. If it is not english, the function will translate the input into english, then return the input back so that it can converse with the chat bot in english. If the phrase is english, the method will return the original phrase back. The translate API supports several languages, however it does struggle with languages that have different characters not found in the english language. It is most effective with languages such as French, Portuguese, German, etc. 
 
 Example convo:
 
