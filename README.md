@@ -5,6 +5,8 @@ This is a project to create a functional chatbot for COSC 310. The user should b
 This bot was built off of the previous bot created in assignment 3 (team 3), from the python file ChatBotWithPyDictionary.py.
 The GitHub repository for Assignmnet 3 can be found at https://github.com/COSC-310-Team-3/Assignment-3
 
+The file chatBot.py is the file that executes the actual chat bot.
+
 ---
 
 New API's that have been implemented in this bot is the Google Translate API, and the Wikipedia API. 
