@@ -1,6 +1,11 @@
 # Owen Spicker COSC_310 Individual Project
 
-This is a project to create a functional chatbot for COSC 310. The user should be able to hold basic conversation with the bot about sports. The role the agent will take is that of a friend, and the user can ask the agent questions about sports. This bot was built off of the previous bot created in assignment 3 (team 3). This program uses modified code from https://github.com/nltk/nltk/blob/develop/nltk/chat/util.py which is open source.
+This is a project to create a functional chatbot for COSC 310. The user should be able to hold basic conversation with the bot about sports. The role the agent will take is that of a friend, and the user can ask the agent questions about sports. This program uses modified code from https://github.com/nltk/nltk/blob/develop/nltk/chat/util.py which is open source.
+
+This bot was built off of the previous bot created in assignment 3 (team 3), from the python file ChatBotWithPyDictionary.py.
+The GitHub repository for Assignmnet 3 can be found at https://github.com/COSC-310-Team-3/Assignment-3
+
+---
 
 New API's that have been implemented in this bot is the Google Translate API, and the Wikipedia API. 
 To be able to run this bot with the new features, you will need to install new packages.
