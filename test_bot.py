@@ -1,7 +1,7 @@
 import unittest
 import pos_tag_functions
 import polarity
-
+import wiki_api
 
 #this file is to test the functions created in Assignment 3
 #the inputs span from general cases to edge cases
@@ -37,8 +37,14 @@ class TestChatBot(unittest.TestCase):
           self.assertEqual(pos_tag_functions.checkForNum("Who won in 19000?"), False)
           self.assertEqual(pos_tag_functions.checkForNum("Who won in 190?"), False)
 
-    
-    
+    def test_wikiTrigger(self):
+        self.assertEqual(wiki_api.checkLookup("tell me about Ice Hockey"), True)
+        self.assertEqual(wiki_api.checkLookup("What is hockey"), False)
+        self.assertEqual(wiki_api.checkLookup("tEll mE aBouT soccer "), True)
+        self.assertEqual(wiki_api.checkLookup("TELL ME ABOUT BC PLACE"), True)
+
+
+
 if __name__ == '__main__':
      unittest.main()
   
