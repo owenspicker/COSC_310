@@ -7,6 +7,9 @@ The GitHub repository for Assignmnet 3 can be found at https://github.com/COSC-3
 
 The file chatBot.py is the file that executes the actual chat bot.
 
+Project video link: https://youtu.be/LrWOOxVZ-q4
+
+
 ---
 
 New API's that have been implemented in this bot is the Google Translate API, and the Wikipedia API. 
